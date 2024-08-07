@@ -1,0 +1,13 @@
+site_name: DI
+theme:
+  name: material
+  language: zh  # 默认语言
+
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 中文
+      link: /zh/
+      lang: zh
