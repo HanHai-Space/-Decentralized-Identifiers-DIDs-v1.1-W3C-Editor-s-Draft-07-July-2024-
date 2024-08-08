@@ -1,414 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!doctype html>
-<html lang="zh" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-      
-      
-      <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-      
-        <title>DI</title>
-      
     
-    
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
-      
-      
-
+    <link rel="shortcut icon" href="site/img/favicon.ico">
 
     
+    <title>去中心化标识符 (DID) v1.1 - 去中心化标识符 (DID) v1.1</title>
     
-      
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="site/css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="site/css/base.min.css" rel="stylesheet">
+    <link href="site/css/cinder.min.css" rel="stylesheet">
+
     
-    
-      
         
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
     
-    
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
 
     
-    
-    
-  </head>
-  
-  
-    <body dir="ltr">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#welcome-to-mkdocs" class="md-skip">
-          跳转至
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
 
-  
+     
+</head>
 
-<header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="." title="DI" class="md-header__button md-logo" aria-label="DI" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+<body class="homepage" >
 
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            DI
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+
+            <!-- Main title -->
+
             
-              Welcome to MkDocs
+              <a class="navbar-brand" href="site">去中心化标识符 (DID) v1.1</a>
             
-          </span>
         </div>
-      </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
     </div>
-    
-    
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
-    </button>
-    <div class="md-select__inner">
-      <ul class="md-select__list">
-        
-          <li class="md-select__item">
-            <a href="/en/" hreflang="en" class="md-select__link">
-              English
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="/zh/" hreflang="zh" class="md-select__link">
-              中文
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 </div>
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            正在初始化搜索引擎
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
 
-
-
-<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="." title="DI" class="md-nav__button md-logo" aria-label="DI" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    DI
-  </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
+    <div class="container">
         
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Welcome to MkDocs
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
         
-  
-  <span class="md-ellipsis">
-    Welcome to MkDocs
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      Commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#did-v11">去中心化标识符 (DID) v1.1</a></li>
+        <li class="first-level "><a href="#_1">摘要</a></li>
+        <li class="first-level "><a href="#_2">本文现状</a></li>
+        <li class="first-level "><a href="#1">1. 导言</a></li>
+            <li class="second-level"><a href="#11">1.1 一个简单的例子</a></li>
                 
-                  
+            <li class="second-level"><a href="#12">1.2 设计目标</a></li>
+                
+            <li class="second-level"><a href="#13">1.3 架构概述</a></li>
+                
+            <li class="second-level"><a href="#14">1.4 一致性</a></li>
+                
+        <li class="first-level "><a href="#2">2. 术语</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
 
+<h1 id="did-v11">去中心化标识符 (DID) v1.1</h1>
+<p>核心架构、数据模型和表示法</p>
+<p><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> 07 July 2024</p>
+<details open="" style="display: block;"><summary style="font-weight: bolder;">More details about this document</summary><dl><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">This version:</dt><dd style="margin: 0px 0px 0.5em 2em;"><a class="u-url" href="https://w3c.github.io/did-core/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">https://w3c.github.io/did-core/</a></dd><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">Latest published version:</dt><dd style="margin: 0px 0px 0.5em 2em;"><a href="https://www.w3.org/TR/did-core-1.1/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">https://www.w3.org/TR/did-core-1.1/</a></dd><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">Latest editor's draft:</dt><dd style="margin: 0px 0px 0.5em 2em;"><a href="https://w3c.github.io/did-core/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">https://w3c.github.io/did-core/</a></dd><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">History:</dt><dd style="margin: 0px 0px 0.5em 2em;"><a href="https://github.com/w3c/did-core/commits/main" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Commit history</a></dd><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">Editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="41758" style="margin: 0px 0px 0.5em 2em;"><a class="u-url url p-name fn" href="http://manu.sporny.org/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Manu Sporny</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://digitalbazaar.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Digital Bazaar</a>) (v1.0, v1.1)</dd><dd class="editor p-author h-card vcard" data-editor-id="86708" style="margin: -0.5em 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://digitalcredentials.mit.edu/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Dmitri Zagidulin</a><span>&nbsp;</span>(<span class="p-org org h-org">Invited Expert</span>) (v1.0)</dd><dd class="editor p-author h-card vcard" style="margin: -0.5em 0px 0.5em 2em;"><span class="p-name fn">Steve McCown</span><span>&nbsp;</span>(v1.0)</dd><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">Former editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="69000" style="margin: 0px 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://rhiaro.co.uk/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Amy Guy</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://digitalbazaar.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Digital Bazaar</a>) (v1.0)</dd><dd class="editor p-author h-card vcard" data-editor-id="46729" style="margin: -0.5em 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://www.linkedin.com/in/markus-sabadello-353a0821" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Markus Sabadello</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://danubetech.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Danube Tech</a>) (v1.0)</dd><dd class="editor p-author h-card vcard" data-editor-id="3096" style="margin: -0.5em 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://www.linkedin.com/in/drummondreed/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Drummond Reed</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://www.evernym.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Evernym/Avast</a>) (v1.0)</dd><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">Authors:</dt><dd class="editor p-author h-card vcard" data-editor-id="41758" style="margin: 0px 0px 0.5em 2em;"><a class="u-url url p-name fn" href="http://manu.sporny.org/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Manu Sporny</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://digitalbazaar.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Digital Bazaar</a>)</dd><dd class="editor p-author h-card vcard" data-editor-id="48025" style="margin: -0.5em 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://github.com/dlongley" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Dave Longley</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://digitalbazaar.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Digital Bazaar</a>)</dd><dd class="editor p-author h-card vcard" data-editor-id="46729" style="margin: -0.5em 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://www.linkedin.com/in/markus-sabadello-353a0821" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Markus Sabadello</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://danubetech.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Danube Tech</a>)</dd><dd class="editor p-author h-card vcard" data-editor-id="3096" style="margin: -0.5em 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://www.linkedin.com/in/drummondreed/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Drummond Reed</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://www.evernym.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Evernym/Avast</a>)</dd><dd class="editor p-author h-card vcard" style="margin: -0.5em 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://www.linkedin.com/in/or13b/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Orie Steele</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://transmute.industries/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Transmute</a>)</dd><dd class="editor p-author h-card vcard" data-editor-id="85560" style="margin: -0.5em 0px 0.5em 2em;"><a class="u-url url p-name fn" href="https://www.linkedin.com/in/christophera" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Christopher Allen</a><span>&nbsp;</span>(<a class="p-org org h-org" href="https://www.blockchaincommons.com/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">Blockchain Commons</a>)</dd><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">Feedback:</dt><dd style="margin: 0px 0px 0.5em 2em;"><a href="https://github.com/w3c/did-core/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">GitHub w3c/did-core</a><span>&nbsp;</span>(<a href="https://github.com/w3c/did-core/pulls/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">pull requests</a>,<span>&nbsp;</span><a href="https://github.com/w3c/did-core/issues/new/choose" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">new issue</a>,<span>&nbsp;</span><a href="https://github.com/w3c/did-core/issues/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">open issues</a>)</dd><dd style="margin: -0.5em 0px 0.5em 2em;"><a href="mailto:public-did-wg@w3.org?subject=%5Bdid-core-1.1%5D%20YOUR%20TOPIC%20HERE" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">public-did-wg@w3.org</a><span>&nbsp;</span>with subject line<span>&nbsp;</span><kbd>[did-core-1.1]<span>&nbsp;</span><em>… message topic …</em></kbd><span>&nbsp;</span>(<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-did-wg" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">archives</a>)</dd><dt style="break-after: avoid; break-inside: avoid; font-style: normal; font-variant: normal; font-size-adjust: none; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-weight: bold; font-stretch: normal; font-size: 16px; font-family: inherit; line-height: 1.2; hyphens: manual;">Related Documents</dt><dd style="margin: 0px 0px 0.5em 2em;"><a href="https://www.w3.org/TR/did-use-cases/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">DID Use Cases and Requirements</a></dd><dd style="margin: -0.5em 0px 0.5em 2em;"><a href="https://www.w3.org/TR/did-spec-registries/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">DID Specification Registries</a></dd><dd style="margin: -0.5em 0px 0.5em 2em;"><a href="https://w3c.github.io/did-test-suite/" style="color: var(--a-normal-text); text-decoration-color: var(--a-normal-underline); text-decoration-skip-ink: none;">DID Core Implementation Report</a></dd></dl></details>
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<p><a href="https://www.w3.org/policies/#copyright">Copyright</a> © 2024 <a href="https://www.w3.org/">World Wide Web Consortium</a>. W3C® <a href="https://www.w3.org/policies/#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/policies/#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/copyright/software-license-2023/">permissive document license</a> rules apply.</p>
+<hr />
+<h1 id="_1">摘要</h1>
+<p>去中心化标识符（DID）是一种新型标识符，支持可验证的、去中心化的数字身份。一个 DID 可以标识由 DID 控制者决定的任何主题（例如个人、组织、事物、数据模型、抽象实体等）。与典型的联合标识符相比，DIDs的设计使其分离于集中式注册表、身份提供者以及证书颁发机。具体来说，虽然可借助第三方协助发现与DID相关的信息，但该设计允许DID控制者无需任何第三方授权的情况下即可证明对其的控制。DIDs 是将 DID 主题与DID 文档相关联的URIs，允许与该主题相关联的可信交互每个 DID 文档都可以表达加密材料、验证方法或服务，提供了一组让DID控制者能够证明对 DID 控制的机制。服务可实现与 DID 主题相关的可信交互。如果 DID 主题是数据模型等信息资源，则 DID 可提供返回 DID 主题本身的方法。本文档规定了 DID 语法、通用数据模型、核心属性、序列化表示、DID 操作，并解释了将 DID 解析为其所代表的资源的过程。</p>
+<h1 id="_2">本文现状</h1>
+<p>本节介绍本文档出版时的状态。当前 W3C 出版物和本技术报告最新修订版的列表可在 https://www.w3.org/TR/ 的 W3C 技术报告索引中找到。</p>
+<p>此版本的 DID 核心标准（1.1 版）是试验性的。请勿实施。如果要实施 DID，请使用当前的 1.0 版标准：  <a href="https://www.w3.org/TR/did-core/">Decentralized Identifiers (DIDs) v1.0</a>.</p>
+<p>本文档由 <a href="https://www.w3.org/groups/wg/did">Decentralized Identifier Working Group</a> 作为编辑草案发布。</p>
+<p>作为编辑草案发布并不意味着得到 W3C 及其成员的认可。</p>
+<p>本文件为草案，可能随时被其他文件更新、取代或废止。除正在进行的工作外，不宜引用本文件。</p>
+<p>本文档由一个根据 W3C 专利政策运作的小组编写。W3C 保留一份公开清单，记录与该小组交付成果相关的任何专利披露；该页面</p>
+<p>还包括披露专利的说明。如果个人实际知晓一项专利，并认为该专利包含必要权利要求，则必须根据 W3C 专利政策第 6 节披露该信息。</p>
+<p>本文件受 2023 年 11 月 3 日 W3C 流程文件管辖。</p>
+<h1 id="1">1. 导言</h1>
+<p>本节为非规范性内容。</p>
+<p>作为个人和组织，我们中的许多人都在各种场合使用全球唯一标识符。它们可用作通信地址（电话号码、电子邮件地址、社交媒体上的用户名）、身份证号码（护照、驾照、纳税 ID、医疗保险）和产品标识符（序列号、条形码、RFIDs）。URIs（统一资源标识符）用于网络资源，您在浏览器中浏览的每个网页都有一个全球唯一的 URL（统一资源定位符 <code>Uniform Resource Locator</code>）。</p>
+<p>这些全球唯一标识符绝大多数不受我们控制。它们是由外部机构发布的，这些机构决定它们所指的是谁或什么，以及何时可以撤销。它们只在某些情况下有用，只被某些机构认可，而不是由我们选择。它们可能会随着组织的倒闭而消失或失效。它们可能泄露个人信息。在许多情况下，它们可能会被恶意的第三方以欺诈方式复制和利用，这就是通常所说的 “身份盗窃”。</p>
+<p>本规范定义的去中心化标识符（DID）是一种新型的全球唯一标识符。其目的是让个人和组织能够使用他们信任的系统生成自己的标识符。这些新标识符使实体能够通过使用数字签名等加密证明进行验证，从而证明对标识符的控制权。</p>
+<p>由于去中心化标识符的生成和声明是由实体控制的，每个实体都可以根据需要拥有尽可能多的去中心化标识符，以保持其所需的身份、角色和互动的分离。这些标识符的使用范围可以根据不同的情况进行适当调整。它们支持与其他人、机构或系统的交互，这些交互要求实体识别自己或自己控制的事物，同时提供对个人隐私数据披露程度的控制，而所有这些都不依赖于中央机构来保证标识符的持续存在。DID 用例文档 [DID-USE-CASES] 对这些想法进行了探讨。</p>
+<p>本规范并不预设任何特定的技术或加密技术来支持 DID 的生成、持久性、解析或解释。例如，实施者可以根据在联合或中心化身份管理系统中注册的标识符创建去中心化标识符。事实上，几乎所有类型的标识符系统都可以增加对 DID 的支持。这就在中心化、联合式和去中心化标识符之间架起了一座互操作性桥梁。这也使实施者能够设计特定类型的 DID，以便与他们信任的计算基础设施（如分布式账本、去中心化文件系统、分布式数据库和点对点网络）协同工作。</p>
+<p>本规范适用于：</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>希望了解作为去中心化标识符基础的核心架构原则的任何人；</li>
+<li>希望生产和使用去中心化标识符及其相关数据格式的软件开发人员；</li>
+<li>希望了解如何在其软件和硬件系统中使用去中心化标识符的系统集成商；</li>
+<li>希望创建符合本文档所述生态系统的新 DID 基础设施（称为 DID 方法）的标准作者。</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<p>除本标准外，读者可能会发现去中心化标识符的用例和要求 [DID-USE-CASES] 文档也很有用。</p>
+<h2 id="11">1.1 一个简单的例子</h2>
+<p><em>本节为非规范性内容。</em></p>
+<p>DID 是一个简单的文本字符串，由三部分组成：</p>
+<p>1）DID URI 方案标识符；(<code>did URI scheme identifier</code>) </p>
+<p>2）DID 方法标识符；(<code>DID method</code>) </p>
+<p>3）DID 方法特定标识符。(<code>DID method-specific identifier</code>)</p>
+<p><img alt="" src="https://w3c.github.io/did-core/diagrams/parts-of-a-did.svg" /></p>
+<p><center><i>图 1 分散式标识符 (DID) 的简单示例</i></center></p>
+<p>上面的 DID 示例解析为一个 DID 文档。DID 文档包含与 DID 相关的信息，如对 DID 控制器进行加密验证的方法。</p>
+<blockquote>
+<p>示例 1: 一个简单的DID文档</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;@context&quot;: [
+    &quot;https://www.w3.org/ns/did/v1&quot;,
+    &quot;https://w3id.org/security/suites/ed25519-2020/v1&quot;
+  ],
+  &quot;id&quot;: &quot;did:example:123456789abcdefghi&quot;,
+  &quot;authentication&quot;: [{
+    // used to authenticate as did:...fghi
+    &quot;id&quot;: &quot;did:example:123456789abcdefghi#keys-1&quot;,
+    &quot;type&quot;: &quot;Ed25519VerificationKey2020&quot;,
+    &quot;controller&quot;: &quot;did:example:123456789abcdefghi&quot;,
+    &quot;publicKeyMultibase&quot;: &quot;z6MkmM42vxfqZQsv4ehtTjFFxQ4sQKS2w6WR7emozFAn5cxu&quot;
+  }]
+}
 </code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
+<h2 id="12">1.2 设计目标</h2>
+<p><em>本节为非规范性内容。</em></p>
+<p>去中心化标识符是更大系统的一个组成部分，如可验证凭证生态系统 [VC-DATA-MODEL]，这影响了本规范的设计目标。这里总结了去中心化标识符的设计目标。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">目标</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">去中心化</td>
+<td>在标识符管理（包括全球唯一标识符、公共验证密钥、服务和其他信息的注册）中消除对中心化机构或单点故障的要求。</td>
+</tr>
+<tr>
+<td style="text-align: left;">控制权</td>
+<td>赋予实体（包括人类和非人类实体）直接控制其数字标识符的权力，而无需依赖外部机构。</td>
+</tr>
+<tr>
+<td style="text-align: left;">隐私</td>
+<td>使实体能够控制其信息的隐私，包括最小化、选择性和渐进式地披露属性或其他数据。</td>
+</tr>
+<tr>
+<td style="text-align: left;">安全性</td>
+<td>为请求方提供足够的安全性，使其能够依赖 DID 文档来获得所需的保证级别。</td>
+</tr>
+<tr>
+<td style="text-align: left;">基于证明</td>
+<td>让 DID 控制者在与其他实体交互时提供加密证明。</td>
+</tr>
+<tr>
+<td style="text-align: left;">可发现性</td>
+<td>使实体可以发现其他实体的 DID，以了解更多信息或与这些实体进行交互。</td>
+</tr>
+<tr>
+<td style="text-align: left;">互操作性</td>
+<td>使用互操作性标准，使 DID 基础设施可以利用为实现互操作性而设计的现有工具和软件库。</td>
+</tr>
+<tr>
+<td style="text-align: left;">可移植性</td>
+<td>与系统和网络无关，使实体能够在任何支持 DID 和 DID 方法的系统中使用其数字标识符。</td>
+</tr>
+<tr>
+<td style="text-align: left;">简便性</td>
+<td>简化功能，使技术更易于理解、实施和部署。</td>
+</tr>
+<tr>
+<td style="text-align: left;">可扩展性</td>
+<td>只要不严重妨碍互操作性、可移植性或简易性，应尽可能实现可扩展性。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13">1.3 架构概述</h2>
+<p><em>本节为非规范性内容。</em></p>
+<p>本节提供去中心化标识符架构主要组件的基本概述。</p>
+<p><img alt="" src="https://w3c.github.io/did-core/diagrams/did_brief_architecture_overview.svg" /></p>
+<p><center><i>图 2 DID 架构概览和基本组件之间的关系。另见：叙述性说明。</i></center></p>
+<p><strong>DIDs 和 DID URLs</strong>
+去中心化标识符或 DID 是由三部分组成的 URI：方案 did:(<code>scheme did:</code>)、方法标识符(<code>method identifier</code>)和 DID 方法(<code>DID method</code>)指定的唯一特定方法标识符。DID 可解析为 DID 文档(<code>DID documents</code>)。DID URL 扩展了基本 DID 的语法，纳入了路径、查询和片段等其他标准 URI 组件，用于定位特定资源--例如，DID 文档中的加密公钥或 DID 文档外部的资源。这些概念将在<u>3.1 DID 语法</u>和<u>3.2 DID URL 语法</u>中详细阐述。</p>
+<p><strong>DID 主题</strong>
+DID 主题顾名思义就是 DID 所标识的实体。DID 主题也可以是 DID 控制器。任何东西都可以是 DID 的主题：人、团体、组织、事物或概念。<u>5.1.1 DID 主题</u>对此有进一步定义。</p>
+<p><strong>DID 控制者</strong>
+DID 控制者是指有能力（如 DID 方法所定义）对 DID 文档进行更改的实体（个人、组织或自主软件）。这种能力通常由代表控制者的软件对一组加密密钥的控制来实现，但也可能通过其他机制来实现。请注意，一个 DID 可能有不止一个控制器，而 DID 主题可以是 DID 控制器，也可以是其中之一。这一概念在 <u>5.1.2 DID 控制器</u>中有所阐述。</p>
+<p><strong>可验证的数据注册</strong>
+为了能解析 DID 文档，DID 通常会记录在某种底层系统或网络中。无论使用何种特定技术，任何支持记录 DID 并返回生成 DID 文档所需数据的系统都称为可验证数据注册中心。这方面的例子包括分布式分类账、去中心化文件系统、各种数据库、点对点网络以及其他形式的可信数据存储。这一概念将在<u>8. 方法</u>中进一步阐述。</p>
+<p><strong>DID 文档</strong>
+DID 文档包含与 DID 相关的信息。它们通常表达与 DID 主题交互相关的验证方法（如加密公钥）和服务。DID 文档支持的通用属性在<u>5.核心属性</u>中。DID 文档可序列化为字节流（见 <u>6.表示法</u>）。DID 文档中的属性可<u>根据 8.方法</u>。</p>
+<p><strong>DID 方法</strong>
+DID 方法是创建、解析、更新和停用特定类型 DID 及其关联 DID 文档的机制。DID 方法使用单独的 DID 方法规范来定义，如<u>8. 方法</u>中的定义。</p>
+<p><strong>DID 解析器和 DID 解析</strong>
+DID 解析器是一个系统组件，它将 DID 作为输入，并将符合要求的 DID 文档作为输出。这一过程称为 DID 解析。解析特定类型 DID 的步骤由相关 DID 方法规范定义。DID 解析过程详见 <u>7. 解析</u>。</p>
+<p><strong>DID URL 解除引用器和 DID URL 解除引用</strong>
+DID URL 解除引用器是一个将 DID URL 作为输入并将资源作为输出的系统组件。这一过程称为 DID URL 解除引用。<u>7.2 DID URL</u> 解除引用中详细介绍了 DID URL 解除引用的过程。</p>
+<h2 id="14">1.4 一致性</h2>
+<p>除标注为非规范性的部分外，本规范中的所有编写指南、图表、示例和注释都是非规范性的。本规范中的其他内容均为规范性内容。</p>
+<p>本文档中的关键词 MAY、MUST、MUST NOT、OPTIONAL、RECOMMENDED、REQUIRED、SHOULD 和 SHOULD NOT，当且仅当它们以大写字母出现时，应按照 <u>BCP 14</u> [<u>RFC2119</u>] [<u>RFC8174</u>] 中的描述进行解释，如此处所示。</p>
+<p>本文档包含包含 JSON 和 JSON-LD 内容的示例。其中一些示例包含无效字符，例如内联注释 (//) 和使用省略号（...）来表示对示例没有什么价值的信息。如果实施者希望将这些信息用作有效的 JSON 或 JSON-LD，请务必删除这些内容。</p>
+<p>某些示例包含本规范未定义的术语（包括属性名称和属性值）。这些术语用注释（//外部（属性名|值））表示。这些术语在 DID 文档中使用时，应在 DID 规范注册表 [DID-SPEC-REGISTRIES] 中注册，并链接到正式定义和 JSON-LD 上下文。</p>
+<p>测试DID 和 DID 文档实现的互操作性是通过评估创建和解析符合本规范的 DID 和 DID 文档的能力。DID 和 DID 文档生产者和消费者的互操作性是通过确保 DID 和 DID 文档符合规范来实现的。DID 方法规范的互操作性参考每个 DID 方法规范中的具体细节。例如，像网络浏览器不需要实现所有已知的 URI 方案一样，与 DID 兼容的软件也不需要实现所有已知的 DID 方法。但是，特定 DID 方法的所有实现都应具有互操作性。</p>
+<p><strong>符合要求的 DID 是</strong>对 <u>3.标识符</u> 中规定的规则在符合该节中的相关规范声明下的具体实现。</p>
+<p><strong>符合要求的 DID 文档</strong>是本规范中描述的数据模型在符合 <u>4. 数据模型</u> 和 <u>5. 核心属性</u> 下的实现。符合要求的文档的序列化格式是确定的、双向的和无损的，如 <u>6. 表述</u> 。</p>
+<p><strong>符合规范的生产者</strong>是以软件和/或硬件形式实现的任何算法，用于在符合 <u>6.表述</u> 中的相关规范声明下生成符合规范的 DID 或符合标准的 DID 文档。</p>
+<p><strong>符合标准的消费者</strong>是指作为软件和/或硬件实现的任何算法，它消费符合标准的 DID 或符合标准的 DID 文档，并遵守 <u>6.表述</u> 中的相关规范声明。</p>
+<p><strong>符合标准的 DID 解析器</strong>是指在符合 <u>7.1 DID 解析</u>中的相关规范声明下任何以软件和/或硬件形式实现的算法。</p>
+<p><strong>符合要求的 DID URL 解除器</strong>是指以软件和/或硬件形式实现的、符合 <u>7.2 DID URL</u> 解除中相关规范声明的任何算法。</p>
+<p><strong>符合标准的 DID 方法</strong>是指符合 <u>8.方法</u>中相关规范声明的任何规范。</p>
+<h1 id="2">2. 术语</h1>
+<p><em>本节为非规范性内容。</em></p>
+<p>本节定义了本标准和整个去中心化标识符基础中使用的术语。只要这些术语在本标准中出现，就会提供相关链接。</p>
+<p><strong>放大攻击</strong>（<code>amplification attack</code>）
+一类攻击，攻击者通过向系统提供少量有效输入，试图耗尽目标系统的 CPU、存储、网络或其他资源，从而造成破坏性影响，其处理成本可能以指数形式超过输入本身。</p>
+<p><strong>验证</strong>（<code>authenticate</code>）
+身份验证是一个实体使用一种或多种验证方法证明其拥有特定属性或控制特定秘密的过程。就 DID 而言，一个常见的例子是证明与 DID 文档中公布的公钥相关的加密私钥的控制权。</p>
+<p><strong>加密套件</strong>（<code>cryptographic suite</code>）
+为实现特定安全目标而定义特定加密原语用法的标准。这些文件通常用于指定验证方法、数字签名类型、其标识符和其他相关属性。</p>
+<p><strong>去中心化识符</strong>（<code>decentralized identifier (DID)</code>）
+全球唯一永久的标识符，不需要中央注册机构，通常以加密方式生成和/或注册。<u>3.1 DID 语法</u>中定义了 DID 的通用格式。具体的 DID 方案在 DID 方法标准中定义。许多——但并非所有——DID 方法都使用分布式账本技术（DLT）或其他形式的去中心化网络。</p>
+<p><strong>去中心化身份管理</strong>（<code>decentralized identity management</code>）
+基于使用去中心化标识符为的身份管理。将生成、注册和分配标识符的权力扩展到传统的信任根基之外，如 X.500 目录服务、域名系统和大多数国家的身份证系统。</p>
+<p><strong>DID 控制者</strong>（<code>DID controller</code>）
+具有能力更改 DID 文档的实体。一个 DID 可能有不止一个 DID 控制器。DID 控制器可通过 DID 文档顶层的可选控制器属性表示。请注意，DID 控制器可能就是 DID 主题。</p>
+<p><strong>DID 委托人</strong>（<code>DID delegate</code>）
+DID 控制员通过 DID 文档授权使用与 DID 相关的验证方法的实体。例如，控制孩子 DID 文档的家长可能允许孩子使用个人设备进行身份验证。在这种情况下，孩子就是 DID 委托人。孩子的个人设备包含私人加密材料，使孩子能够使用 DID 进行身份验证。不过，未经父母允许，孩子可能不得添加其他个人设备。</p>
+<p><strong>DID 文档</strong>（<code>DID document</code>）
+描述 DID 主题的一组数据。其包括 DID 主题或 DID 委托人可用于验证自身身份并证明与 DID 关联的机制（如加密公钥）。一个 DID 文档可能有一个或多个不同的表示法，如 6.表示法或 W3C 文件中的定义。表示法或 W3C DID 标准注册表 [DID-SPEC-REGISTRIES] 中定义的一种或多种不同表示法。</p>
+<p><strong>DID 片段</strong>（<code>DID fragment</code>）
+DID URL 中第一个散列符号字符 (#) 之后的部分。DID 片段语法与 URI 片段语法相同。</p>
+<p><strong>DID 方法</strong>（<code>DID method</code>）
+特定 DID 方法方案实现方式的定义。DID 方法由 DID 方法标准规定，该标准规定了创建、解析、更新和停用 DID 和 DID 文档的详细操作。请参阅 <u>8.方法</u> 。</p>
+<p><strong>DID 路径</strong>（<code>DID path</code>）
+DID URL 中以第一个正斜线 (/) 字符开头并包含该字符的部分，以问号 (?)、片段哈希符号 (#) 字符或 DID URL 结尾结束。DID 路径语法与 URI 路径语法相同。请参阅<u>路径</u>。</p>
+<p><strong>DID 查询</strong>（<code>DID query</code>）
+DID URL 中第一个问号字符 (?) 之后的部分。DID 查询语法与 URI 查询语法相同。请参阅<u>查询</u>。</p>
+<p><strong>DID 解析</strong>（<code>DID resolution</code>）
+将 DID 和一组解析选项作为输入，并以符合要求的表示形式返回 DID 文档和附加元数据的过程。该流程依赖于适用 DID 方法的 “读取 ”操作。该流程的输入和输出在 <u>7.1 DID</u> 解析中定义。</p>
+<p><strong>DID 解析器</strong>（<code>DID resolver</code>）
+DID 解析器是执行 DID 解析功能的软件和/或硬件组件，它将 DID 作为输入，并将符合要求的 DID 文档作为输出。</p>
+<p><strong>DID 方案</strong>（<code>DID scheme</code>）
+去中心化标识符的正式语法。通用 DID 方案以 <u>3.1 DID 语法</u>中定义的前缀 did: 开始。每个 DID 方法标准都定义了与特定 DID 方法配合使用的特定 DID 方法方案。在特定 DID 方法方案中，DID 方法名称以第一个冒号开头，以第二个冒号结尾，如 did:example：</p>
+<p><strong>DID 主题</strong>（<code>DID subject</code>）
+由 DID 认证并由 DID 文档描述的实体。任何东西都可以成为 DID 主题：人、群体、组织、客观事物、数字事物、主观事物。</p>
+<p><strong>DID URL</strong>
+DID 加上符合 3.2 DID URL 语法定义的任何附加语法组件。这包括可选的 DID 路径（带前导 / 字符）、可选的 DID 查询（带前导 ? 字符）和可选的 DID 片段（带前导 # 字符）。</p>
+<p><strong>DID URL 解引用</strong>（<code>DID URL dereferencing</code>）
+将一个 DID URL 和一组输入元数据作为输入，并返回一个资源的过程。该资源可能是 DID 文档加上附加元数据，也可能是 DID 文档中包含的二级资源，还可能是与 DID 文档无关的资源。该流程使用 DID 解析来获取 DID URL 中包含的 DID 所指示的 DID 文档。解引用流程可对 DID 文档处理，以返回 DID URL 所指的解引用资源。该流程的输入和输出在 7.2 DID URL 解引用中定义。</p>
+<p><strong>DID URL 解引用器</strong>（<code>DID URL dereferencer</code>）
+对给定 DID URL 或 DID 文档执行 DID URL 解引用功能的软件和/或硬件系统。</p>
+<p><strong>分布式账本</strong>（<code>distributed ledger (DLT)</code>）
+用于记录事件的非集中式系统。这些系统为参与者建立了足够的信任，使其能够依赖他人记录的数据做出操作决策。它们通常使用分布式数据库，不同节点使用共识协议确认加密签名交易的排序。经过数字签名的交易随着时间的推移被连接起来，这通常会使账本的历史不可更改。</p>
+<p><strong>公钥描述</strong>（<code>public key description</code>）
+包含在 DID 文档中的数据对象，其中包含使用公钥或验证密钥所需的所有元数据。</p>
+<p><strong>资源</strong>（<code>resource</code>）
+由 [RFC3986] 定义： "......术语'资源'用于一般意义上的任何可由 URI 标识的内容"。同样，任何资源都可以作为由 DID 标识的 DID 主题。</p>
+<p><strong>表示法</strong>（<code>representation</code>）
+正如 [RFC7231] 为 HTTP 所定义： "旨在反映指定资源的过去、当前或期望状态的信息，其格式可通过协议轻松通信，由一组表示元数据和可能无限制的表示数据流组成"。DID 文档是描述 DID 主题的信息表征。见 6. 表示。</p>
+<p><strong>特殊表征条目</strong>（<code>representation-specific entries</code>）
+DID 文档中的条目，其含义是特定表示法所特有的。在 4. 数据模型》和《6. 表示法中定义。例如，JSON-LD 表示法中的 @context 就是特定于表示法的条目。</p>
+<p><strong>服务</strong>（<code>services</code>）
+通过一个或多个服务端点与 DID 主题或相关实体进行通信或交互的方式。例如，发现服务、代理服务、社交网络服务、文件存储服务和可验证凭证存储库服务。</p>
+<p><strong>服务端点</strong>（<code>service endpoint</code>）
+一个服务代表 DID 主题运行的网络地址，如 HTTP URL。</p>
+<p><strong>统一资源标识符</strong>（<code>Uniform Resource Identifier (URI)</code>）
+由 [RFC3986] 定义的万维网上所有资源的标准标识符格式。DID 是 URI 方案的一种。</p>
+<p><strong>可验证凭证</strong>（<code>verifiable credential</code>）
+W3C 可验证凭证规范 [VC-DATA-MODEL] 所定义的加密可验证数字凭证的标准数据模型和表示格式。</p>
+<p><strong>可验证数据注册中心</strong>（<code>verifiable data registry</code>）
+一种便于创建、验证、更新和/或停用去中心化标识符和 DID 文档的系统。可验证数据注册中心也可用于其他加密可验证数据结构，如可验证凭证。更多信息，请参阅 W3C 可验证凭证规范 [VC-DATA-MODEL]。</p>
+<p><strong>可验证时间戳</strong>（<code>verifiable timestamp</code>）
+可验证时间戳可让第三方验证数据对象在某一特定时刻是否存，以及自该时刻起是否被修改或损坏。如果数据完整性从该时刻起已被修改或损坏，则时间戳无法验证。</p>
+<p><strong>验证方法</strong>（<code>verification method</code>）
+一组参数，可与流程一起用于独立验证证明。例如，加密公共密钥可用作数字签名的验证方法；在这种用法中，它可以验证签名者是否拥有相关的加密密钥。</p>
+<p>本定义中的 "验证 "和 "证明 "意在广泛适用。例如，在 Diffie-Hellman 密钥交换过程中，可以使用加密公开密钥来协商加密共享对称密钥。这保证了密钥协议过程的完整性。因此，这也是另一种验证方法，尽管对这一过程的描述可能不会使用 "验证 "或 "证明 "等词。</p>
+<p><strong>验证关系</strong>（<code>verification relationship</code>）
+DID 主题与验证方法之间关系的表述。5.3.1 验证就是验证关系的一个例子。</p>
+<p><strong>全球唯一标识符 </strong>（<code>Universally Unique Identifier (UUID)</code>）
+由 [RFC4122] 定义的一种全球唯一标识符。UUID 与 DID 类似，都不需要集中注册机构。UUID 与 DID 的不同之处在于它们不可解析或不可加密验证。
+除上述术语外，本标准还使用 [INFRA] 规范中的术语来正式定义数据模型。当使用 [INFRA] 术语（如字符串、集合和映射）时，会直接链接到该标准。</p></div>
         
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="site/js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "."</script>
+    
+    <script src="site/js/base.js"></script>
+    <script src="site/search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
 </div>
-      
-    </div>
-  </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-    
-    
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
-      
-    
-  </body>
+    </body>
+
 </html>
+
+<!--
+MkDocs version : 1.6.0
+Build Date UTC : 2024-08-08 11:43:01.905548+00:00
+-->
