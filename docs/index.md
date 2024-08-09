@@ -294,3 +294,157 @@ DID 主题与验证方法之间关系的表述。5.3.1 验证就是验证关系�
 **全球唯一标识符 **（`Universally Unique Identifier (UUID)`）
 由 [RFC4122] 定义的一种全球唯一标识符。UUID 与 DID 类似，都不需要集中注册机构。UUID 与 DID 的不同之处在于它们不可解析或不可加密验证。
 除上述术语外，本标准还使用 [INFRA] 规范中的术语来正式定义数据模型。当使用 [INFRA] 术语（如字符串、集合和映射）时，会直接链接到该标准。
+
+
+
+# 3. 标识符
+
+本节介绍 DID 和 DID URL 的语法。术语 "通用 "是为了将此处定义的语法与特定 DID 方法在各自规范中定义的语法区分开来。DID 和 DID URL 的创建过程及其时间在 8.2 方法操作和 B.2 创建 DID 中描述。
+
+
+
+## 3.1 DID 语法
+
+通用 DID 方案是一种符合 [RFC3986] 的 URI 方案。ABNF 定义如下，它使用 [RFC5234] 中的语法以及 ALPHA 和 DIGIT 的相应定义。ABNF 中未定义的所有其他规则名称均在 [RFC3986] 中定义。所有 DID 必须符合 DID 语法 ABNF 规则。
+
+
+
+**DID 语法 ABNF 规则**
+
+![](https://github.com/HanHai-Space/Decentralized-Identifiers-DIDs-v1.1-Draft-07-July-2024-ZH/blob/master/pic/The%20DID%20Syntax%20ABNF%20Rules.png?raw=true)
+
+有关 DID 方法与 DID 语法相关的要求，请参见第 8.1 节 方法语法。
+
+
+
+## 3.2 DID URL 语法
+
+DID URL 是特定资源的网络位置标识符。它可用于检索 DID 主题的表示、验证方法、服务、DID 文档的特定部分或其他资源。
+
+以下是使用 [RFC5234] 中语法的 ABNF 定义。它基于以 3.1 DID 语法中定义的 did 方案。路径空、查询和片段组件在 [RFC3986] 中定义。所有 DID URL 必须符合 DID URL 语法 ABNF 规则。如 8.1 方法语法所述，DID 方法可以进一步限制这些规则。
+
+**DID URL 语法 ABNF 规则**
+
+`did-url = did path-abempty [ "?" query ] [ "#" fragment ]`。
+
+> 注意：分号字符保留供将来使用
+>
+> 虽然分号 (;) 字符可根据 DID URL 语法标准使用，但本规范的未来版本可能会将其用作参数的子分隔符，如 [MATRIX-URIS] 所述。为避免将来发生冲突，开发人员应避免使用它。
+
+
+
+**路径**
+
+
+DID 路径与通用 URI 路径相同，并符合 RFC 3986 第 3.3 节中的路径空 ABNF 规则。与 URI 一样，路径语义可由 DID 方法指定，这反过来又可使 DID 控制器能够进一步细化这些语义。
+
+> 示例 2
+>
+> `did:example:123456/path`
+
+
+
+**查询**
+DID 查询与一般 URI 查询相同，符合 RFC 3986 第 3.4 节中的查询 ABNF 规则。3.2.1 DID 参数将详细介绍这一语法特征。
+
+> 示例 3
+>
+> `did:example:123456?versionId=1`
+
+
+
+**片段**
+DID 片段的语法和语义与通用 URI 片段相同，并符合 RFC 3986 第 3.5 节中的片段 ABNF 规则。
+
+DID 片段可用作 DID 文档或外部资源的独立于方法的引用。下面是一些 DID 片段标识符的示例。
+
+> 例 4：DID 文档中的唯一验证方法
+>
+> `did:example:123#public-key-0`
+
+> 例 5：DID文档中的唯一服务端点
+>
+> `did:example:123#agent`
+
+> 例 6：DID 文档中的外部资源
+>
+> `did:example:123?service=agent&relativeRef=/credentials#degree`
+
+> 注：跨表述的片段语义
+>
+> 为了最大限度地提高互操作性，我们敦促实现者确保 DID 片段在不同表示法中的解释方式相同（请参阅 6.表示法）。例如，虽然可以在 DID 片段中使用 JSON 指针 [RFC6901]，但它在非 JSON 表示法中的解释方式并不相同。
+
+E.2 application/did+ld+json 中针对 JSON-LD 表示法描述了片段标识符的其他语义，这些语义与本节中的语义兼容，并对其进行了分层。有关如何解引用 DID 片段的信息，请参阅 7.2 DID URL 解引用。
+
+
+
+### 3.2.1 DID 参数
+
+DID URL 语法支持基于 "查询 "中描述的查询组件的简单参数格式。在 DID URL 中添加 DID 参数意味着该参数成为资源标识符的一部分。
+
+> 例 7：带有 "versionTime "DID 参数的 DID URL
+> `did:example:123?versionTime=2021-05-10T17:00:00Z`
+
+> 例 8：带有 "service "和 "relativeRef "DID 参数的 DID URL
+> `did:example:123?service=files&relativeRef=/resume.pdf`
+
+有些 DID 参数完全独立于任何特定的 DID 方法，对所有 DID 起相同的作用。其他 DID 参数并非所有 DID 方法都支持。在支持可选参数的情况下，这些参数在支持它们的DID方法中具有统一的操作方式。下表提供了所有 DID 方法中功能相同的常用 DID 参数。对所有 DID 参数的支持都是可选的。
+
+> 注意
+>
+> 一般来说，DID URL 解引用器的实现应参考 [DID-RESOLUTION] 以了解更多实现细节。本标准的范围仅定义了最常见的查询参数的规定。
+
+
+
+| 参数名称    | 描述                                                         |
+| :---------- | :----------------------------------------------------------- |
+| service     | 通过服务 ID 从 DID 文档中标识一项服务。如果存在，相关值必须是 ASCII 字符串。 |
+| relativeRef | 根据 RFC3986 第 4.2 节规定的相对 URI 引用，用于标识服务端点的资源，该资源是通过使用服务参数从 DID 文档中选择的。如果存在，相关值必须是 ASCII 字符串，并且必须对某些字符使用 RFC3986 第 2.1 节规定的百分数编码。 |
+| versionId   | 标识要解析的 DID 文档的特定版本（版本 ID 可以是顺序、UUID 或特定方法）。如果存在，相关值必须是 ASCII 字符串。 |
+| versionTime | 标识要解析的 DID 文档的特定版本时间戳。也就是说，该 DID 文档在特定时间对 DID 有效。如果存在，相关值必须是一个 ASCII 字符串，它是一个有效的 XML 日期值，如 W3C XML 模式定义语言（XSD）1.1 第 2 部分：数据类型 [XMLSCHEMA11-2] 第 3.3.7 节所定义。该日期时间值必须归一化为 UTC 00:00:00，并且不含小数点后两位。例如：2020-12-20T19:17:47Z。 |
+| hl          | DID 文档的资源哈希值，用于添加完整性保护，如 [HASHLINK] 所规定。此参数不具规范性。如果存在，相关值必须是 ASCII 字符串。 |
+
+实施者和 DID 方法规范作者可能会使用此处未列出的其他 DID 参数。为实现最大程度的互操作性，建议 DID 参数使用 DID 标准注册机制 [DID-SPEC-REGISTRIES]，以避免与具有不同语义的相同 DID 参数的其他用途发生冲突。
+
+如果有明确的使用案例（需要将 DID 参数作为 URL 的一部分）使用DID参数是一种比单独使用DID更精确的引用方式。如果可以通过向 DID 解析器传递输入元数据来实现相同的功能，则可以不使用 DID 参数。有关处理这些参数的其他注意事项，请参阅 [DID-RESOLUTION]。
+
+> 注意：DID 参数和 DID 解析
+>
+> 将不属于 DID URL 的输入元数据传递给 DID 解析器会影响 DID 解析和 DID URL 解引用功能（请参阅 7.1.1 DID 解析选项）。这与 HTTP 类似，某些参数可以包含在 HTTP URL 中，也可以在解引用过程中作为 HTTP 标头传递。重要的区别在于，作为 DID URL 一部分的 DID 参数应用于指定正在标识的资源，而非作为DID URL一部分的输入元数据应用于控制该资源的解析或解引用方式。
+
+
+
+### 3.2.2 相对 DID URL
+
+相对 DID URL 是 DID 文档中任何不以` did:<method-name>:<method-specific-id> `开头的 URL 值。更具体地说，它是指任何不以 3.1 DID 语法中定义的 ABNF 开头的 URL 值。该URL 应引用同一 DID 文档中的资源。相对 DID URL 可以包含相对路径组件、查询参数和片段标识符。
+
+解析相对 DID URL 引用时，必须使用 RFC3986 第 5 节：引用解析中指定的算法。**基础 URI** 值是与 DID 主题相关联的 DID，请参阅 5.1.1 DID 主题。**方案**为 did。**权限**是` <method-name>:<method-specific-id> `的组合，**路径**、**查询**和**片段**值分别是路径、查询和片段中定义的值。
+
+相对 DID URL 通常用于引用 DID 文档中的验证方法和服务，而无需使用绝对 URL。考虑到存储空间大小，可使用相对 URL 来减少存储 DID 文档的大小。
+
+
+
+> 例 9：相对 DID URL 示例
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ]
+  "id": "did:example:123456789abcdefghi",
+  "verificationMethod": [{
+    "id": "did:example:123456789abcdefghi#key-1",
+    "type": "Ed25519VerificationKey2020", // external(property value)
+    "controller": "did:example:123456789abcdefghi",
+    "publicKeyMultibase": "z6MkmM42vxfqZQsv4ehtTjFFxQ4sQKS2w6WR7emozFAn5cxu"
+  }, ...],
+  "authentication": [
+    // a relative DID URL used to reference a verification method above
+    "#key-1"
+  ]
+}
+```
+
+在上例中，相对 DID URL 值将转换为`did:example:123456789abcdefghi#key-1`的绝对 DID URL 值。
+
