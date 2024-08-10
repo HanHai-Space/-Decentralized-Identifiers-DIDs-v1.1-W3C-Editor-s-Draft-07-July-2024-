@@ -94,6 +94,9 @@
                 
                 <li class="third-level"><a href="#321-did">3.2.1 DID 参数</a></li>
                 <li class="third-level"><a href="#322-did-url">3.2.2 相对 DID URL</a></li>
+        <li class="first-level "><a href="#4">4 数据模型</a></li>
+            <li class="second-level"><a href="#41">4.1 可扩展性</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -432,7 +435,77 @@ DID 片段的语法和语义与通用 URI 片段相同，并符合 RFC 3986 第 
   ]
 }
 </code></pre>
-<p>在上例中，相对 DID URL 值将转换为<code>did:example:123456789abcdefghi#key-1</code>的绝对 DID URL 值。</p></div>
+<p>在上例中，相对 DID URL 值将转换为<code>did:example:123456789abcdefghi#key-1</code>的绝对 DID URL 值。</p>
+<h1 id="4">4 数据模型</h1>
+<p>本标准定义了一个数据模型，用于表达 DID 文档和 DID 文档数据结构，些结构可进一步序列化为多种具体表示形式。本节提供了数据模型的高级描述、数据模型中不同类型属性的表达方式描述以及扩展数据模型的说明。</p>
+<p>DID 文档由条目映射组成，每个条目由键/值对组成。DID 文档数据模型至少包含两类不同的条目。第一类条目称为属性，在第 5 节核心属性中定义。第二类为表示特定条目，在第6节表示中定义。</p>
+<p><img alt="" src="https://w3c.github.io/did-core/diagrams/diagram-did-document-entries.svg" /></p>
+<p><center><i>图 3 DID 文档中的条目。另请参阅：叙述性说明。</i></center></p>
+<p>DID 文档数据模型中的所有条目键都是字符串。所有条目值都使用下表中的一种抽象数据类型表示，每种表示法都指定了每种数据类型的具体序列化格式。</p>
+<p><strong>数据类型注意事项</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>数据类型注意事项</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>map</td>
+<td>映射中规定的键/值对的有限有序序列，且键不会出现两次，如[INFRA]中所述。在 [INFRA] 中，映射有时被称为有序映射。</td>
+</tr>
+<tr>
+<td>list</td>
+<td>[INFRA]中规定的有限有序序列。</td>
+</tr>
+<tr>
+<td>set</td>
+<td>[INFRA]中规定的不重复包含同一项目的有限有序项目序列。在 [INFRA] 中，集合有时被称为有序集合。</td>
+</tr>
+<tr>
+<td><strong>datetime</strong></td>
+<td>日期和时间值，能够无损地表达 [XMLSCHEMA11-2] 中规定的 dateTime 可以表达的所有值。</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串 [INFRA] 中规定的、通常用于表示人类可读语言的代码单元序列。</td>
+</tr>
+<tr>
+<td><strong>integer</strong></td>
+<td>整数 [XMLSCHEMA11-2] 中规定的不含分数成分的实数。为最大限度地提高互操作性，建议实施者注意 RFC8259 第 6 节：数字中有关整数的建议。</td>
+</tr>
+<tr>
+<td><strong>double</strong></td>
+<td>double 通常用于近似 [XMLSCHEMA11-2] 中规定的任意实数的值。为最大限度地提高互操作性，建议实施者注意 RFC8259 第 6 节：数字中有关 double 的建议。</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>按[INFRA] 中定义，该值要么为真，要么为假</td>
+</tr>
+<tr>
+<td>null</td>
+<td>按 [INFRA] 的定义，用于表示缺少值的值。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>由于数据模型是使用 [INFRA] 中的术语定义的，因此可以包含多个项目的属性值（如列表、映射和集合）都是明确有序的。[INFRA]中所有类似列表的值结构都是有序的，无论这种有序是否重要。就本标准而言，除非另有说明，否则映射和集合的排序并不重要，也不希望实现产生或消耗确定排序的值。</p>
+</blockquote>
+<h2 id="41">4.1 可扩展性</h2>
+<p>数据模型支持两种类型的可扩展性。</p>
+<ol>
+<li>
+<p>为获得为最大限度的互操作性，建议扩展使用 W3C DID 规范注册机制 [DID-SPEC-REGISTRIES]。对新属性或其他扩展使用该机制是确保两种不同表示法能够协同工作的唯一指定机制。</p>
+</li>
+<li>
+<p>表示可以定义其它可扩展性机制，包括不需要使用 DID 规范注册表的机制。此类扩展机制应支持无损转换成任何其他符合要求的表示法。表示法的扩展机制应定义所有属性和表示语法到数据模型及其类型系统的映射。</p>
+</li>
+</ol>
+<blockquote>
+<p>注意：未注册的扩展可靠性较低
+两个特定实现之间可以始终达成共识，通过私下协商使用一种相互理解的扩展或表示形式，该形式未记录在 DID 规范注册中心 [DID-SPEC-REGISTRIES] 中；这种实现与更大生态系统的互操作性将降低可靠性。</p>
+</blockquote></div>
         
         
     </div>
@@ -537,5 +610,5 @@ DID 片段的语法和语义与通用 URI 片段相同，并符合 RFC 3986 第 
 
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-08-09 04:53:48.845395+00:00
+Build Date UTC : 2024-08-10 04:48:41.612665+00:00
 -->
